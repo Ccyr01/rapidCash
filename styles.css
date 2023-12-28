@@ -1,0 +1,225 @@
+/* Reset some default styles for better consistency */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header styling */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    display: flex;
+    max-width: 100%;
+
+    
+}
+
+/* Left div styling */
+.left-div {
+    flex: 1; /* Take up the left half of the header */
+    position: relative; /* Establish positioning context for pseudo-element */
+    overflow: hidden; /* Hide the overflowing parts of the skewed image */
+    display: flex; /* Enable flexbox */
+    flex-direction: column;
+    align-items: center; /* Center the content vertically */
+    background-color: #1f4693;
+    min-height: 100px;
+    justify-content: flex-end;
+    margin-right: -5px;
+}
+.left-div img{
+    min-height: 100px;
+    min-width: 120px;
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    height: auto; /* Maintain the image's aspect ratio */
+    display: block;
+}
+
+.phone-number {
+    margin-top: 10px; /* Adjust margin as needed */
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+/* Right div styling */
+.right-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5px; /* Add some spacing between the divs */
+    flex: 1; /* Take up the available space within the right div */
+    position: relative;
+    box-sizing: border-box;
+}
+.red-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 20px; /* Adjust the width of the red line */
+    background-color: #ec1c22;
+}
+/* Top-right div styling */
+.top-right-div {
+    background-color: #311150;
+    color: #fff;
+    padding: 5px;
+    margin-bottom: 5px; /* Add some spacing between the top and bottom divs */
+    flex: 1; /* Expand to fill the available space */
+}
+.top-right-div img {
+    min-width: 150px;
+    max-width: 100%; /* Adjust this value based on your needs */
+    height: 100px; /* Maintain the image's aspect ratio */
+    display: block; /* Remove any extra space below the image */
+    image-rendering: -webkit-optimize-contrast; /* WebKit (Chrome, Safari) */
+    image-rendering: pixelated; /* Modern browsers */
+    image-rendering: crisp-edges; /* Future CSS standard */
+}
+/* Bottom-right div styling */
+.bottom-right-div {
+    background-color: white;
+    color: #fff;
+    padding: 5px;
+    flex: 1; /* Expand to fill the available space */
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar {
+    display: flex;
+    margin-right: 15px;
+    position: relative;
+}
+
+.navbar a {
+    color: #3761a2;
+    text-decoration: none;
+    padding: 2px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #007bff;
+}
+.navbar a:first-child {
+    margin-left: 25px; /* Adjust the margin to your preference */
+}
+
+.navbar a#services-button::after {
+    content: '\25BC'; /* Unicode character for a down-pointing triangle or arrow */
+    margin-left: 5px; /* Adjust the spacing between the text and arrow */
+}
+.dropdown-menu,
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position the dropdown below the Services button */
+    background-color: #fff; /* Set the background color to white */
+    border: 1px solid #ddd; /* Add a border for a clean look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Display the dropdown menu when the parent link is clicked */
+.navbar a#services-button:hover + .dropdown-menu,
+.dropdown-menu:hover,
+.sub-menu:hover {
+    display: block;
+}
+.navbar a#services-button + .dropdown-menu,
+.navbar a#services-button + .sub-menu {
+    left: 200px;
+}
+
+
+.rapidAloans {
+    max-width: 200px; /* Set the maximum width of the image */
+    height: auto;
+    margin-top: auto;
+    margin-left: auto; /* Add spacing between image and navbar */
+    border-radius: 2px; /* Optional: Add border-radius for rounded corners */
+}
+    
+/* Media query for smaller screens */
+@media (max-width: 750px) {
+    .header {
+        flex-direction: column; /* Change the flex direction to column for stacking */
+    }
+
+    .left-div,
+    .top-right-div {
+        flex: 1; /* Both divs take equal space */
+        min-height: 0; /* Allow content to shrink */
+    }
+
+    .top-right-div {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        margin-bottom: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .top-right-div img {
+        min-width: 150px;
+        max-width: 100%;
+        height: 100px;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+    }
+
+    /* Adjust styling for smaller screens */
+    .top-right-div,
+    .bottom-right-div {
+        padding: 1px;
+        margin: 2px;
+    }
+    .rapidAloans {
+        max-width: 120px; /* Set the maximum width of the image */
+        height: auto;
+        margin-top: auto;
+        margin-left: auto; /* Add spacing between image and navbar */
+        border-radius: 2px; /* Optional: Add border-radius for rounded corners */
+    }
+    .red-line {
+        display: none; /* Hide the red line on smaller screens */
+    }
+    .navbar {
+        padding: 3px; /* Adjust padding around the navbar */
+    }
+
+    .navbar a {
+        margin: 1px; /* Adjust margin around the buttons */
+    }
+
+    .navbar a:first-child {
+        margin-left: 0px; 
+    }
+}
+@media (min-width: 751px) and (max-width: 1200px) {
+    .rapidAloans {
+        min-height: 50px; /* Adjust the min-height value according to your preference */
+    }
+    .left-div img {
+        margin-bottom: 20px; /* Add margin to the bottom of the image */
+    }
+}
+@media (min-width: 800px) {
+    .navbar {
+        padding-top: 25px; /* Adjust the padding as needed */
+    }
+}
+
+
+
